@@ -2,6 +2,7 @@
 
 #include <TMCStepper.h>
 #include <AccelStepper.h>
+#include <DistanceStepper.h>
 
 // #define EN_PIN 38	// Enable
 // #define DIR_PIN 55	// Direction
@@ -9,7 +10,7 @@
 // #define CS_PIN 42	// Chip select
 // #define SW_RX 63	// TMC2208/TMC2224 SoftwareSerial receive pin
 // #define SW_TX 40	// TMC2208/TMC2224 SoftwareSerial transmit pin
-//#define SERIAL_PORT Serial1 // TMC2208/TMC2224 HardwareSerial port\
+//#define SERIAL_PORT Serial1 // TMC2208/TMC2224 HardwareSerial port
 
 #define dirPin 2
 #define stepPin 3
@@ -28,7 +29,7 @@
 
 //constexpr uint32_t steps_per_mm = 80;
 
-AccelStepper stepper = AccelStepper(motorInterfaceType, stepPin, dirPin);
+DistanceStepper stepper = DistanceStepper(motorInterfaceType, stepPin, dirPin);
 
 void setup()
 {
@@ -54,7 +55,7 @@ void setup()
 void loop()
 {
 	//float t = millis() / 1000;
-	stepper.setSpeed(400);
+	
 	// Step the motor with a constant speed as set by setSpeed():
 	stepper.runSpeed();
 
